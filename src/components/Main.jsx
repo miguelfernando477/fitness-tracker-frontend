@@ -17,10 +17,10 @@ const Main = () => {
             <div>
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
-                    <Route path="routines" element={<Routines/>}/>
-                    <Route path="myroutines" element={<MyRoutines/>}/>
-                    <Route path="activities" element={<Activities/>}/>
-                    <Route path="loginregister" element={<LoginRegister/>}/>
+                    <Route path="/routines" element={<Routines/>}/>
+                    <Route path="/myroutines" element={<MyRoutines/>}/>
+                    <Route path="/activities" element={<Activities/>}/>
+                    <Route path="/loginregister" element={<LoginRegister/>}/>
                 </Routes>
             </div>
         </div>
