@@ -18,32 +18,32 @@ async function getRoutines() {
 useEffect(() => {
     getRoutines();
 }, [])
+
     return (
         <div>
            {routines.map((routine, idx) => {
             return (
                 <div key={'routine idx:' + idx}> 
-                <h1>Routine:{routine.name}</h1>
-                <h2>Goal: {routine.goal}</h2>
-               
-                {routine.activities.map((activity, idx) => {
-                    return (
-                        <div key={'activity idx' + idx}>
-                        <h2>Activity:{activity.name}</h2>
-                        <h3>Description: {activity.description} </h3>
-                        {activity.count && <h4>Count:{activity.count}</h4>}
-                        {activity.duration && <h4>Duration:{activity.duration}</h4>}
-                        </div>
-                    )
-                })}
-                <h2>Creator: {routine.creatorName}</h2>
+                    <h1>Routine:{routine.name}</h1>
+                    <h2>Goal: {routine.goal}</h2>
+                
+                    {routine.activities.map((activity, idx) => {
+                        return (
+                            <div key={'activity idx' + idx}>
+                                <h2>Activity:{activity.name}</h2>
+                                <h3>Description: {activity.description} </h3>
+                                {activity.count && <h4>Count:{activity.count}</h4>}
+                                {activity.duration && <h4>Duration:{activity.duration}</h4>}
+                            </div>
+                        )
+                    })}
 
+                    <h2>Creator: {routine.creatorName}</h2>
                 </div>
             )
            })}
         </div>
     )
 }
-// Routine Name, goal, creator username, list of activities for the routine, 
-//each activities going to have a name, description, duration/ count
+
 export default Routines
