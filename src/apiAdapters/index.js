@@ -135,3 +135,16 @@ export const deleteRoutine = async (id) => {
     console.log(error)
   }
 }
+
+export const getAllActivities = async () => {
+  try {
+    const response = await fetch (`${BASE_URL}/activities`, {
+      method: "GET",
+      headers: {"Content-Type": "application/json"}
+    })
+    const result = await response.json();
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
