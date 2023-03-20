@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const logOut = () => {
+  localStorage.removeItem("token")
+  localStorage.removeItem("username")
+}
+
 const Navbar = () => {
   return (
     <div id="navbar">
@@ -8,7 +13,10 @@ const Navbar = () => {
       <Link to="/routines" className="navLink">Routines</Link>
       <Link to="/myroutines" className="navLink">My Routines</Link>
       <Link to="/activities" className="navLink">Activities</Link>
-      <Link to="/loginregister" className="navLink">Login/Register</Link>
+      {localStorage.getItem("username") ? ( <button onClick={() => {
+        logOut();
+      }}>Log Out</button> ) :  <Link to="/loginregister" className="navLink">Login/Register</Link> }
+     
     </div>
   );
 };
