@@ -9,7 +9,6 @@ async function getRoutines() {
     try {
         const result = await getAllRoutines();
         setRoutines(result)
-        console.log(result)
     } catch (error) {
         console.log(error)
     }
