@@ -63,7 +63,7 @@ export const getMyRoutines = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     })
     const result = await response.json();
@@ -75,12 +75,14 @@ export const getMyRoutines = async () => {
 }
 
 export const createNewRoutine = async (name, goal, isPublic) => {
+  const token = localStorage.getItem("token");
+
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({
         name: name,
@@ -89,9 +91,47 @@ export const createNewRoutine = async (name, goal, isPublic) => {
       }),
     });
     const result = await response.json();
-    console.log(result, "newRoutine")
-    return result.token;
+    console.log(response, "newRoutine")
+    return result;
   } catch (error) {
     console.log(error);
   }
 };
+//Duplicate Name Issue
+
+export const editRoutine = async (id, name, goal, isPublic) => {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/routines/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        goal: goal,
+        isPublic: isPublic
+      })
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteRoutine = async (id) => {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/routines/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error)
+  }
+}
