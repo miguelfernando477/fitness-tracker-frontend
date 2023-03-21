@@ -12,7 +12,6 @@ function EditRoutine() {
     let [newIsPublic, setNewIsPublic] = useState(
       location.state.isPublic
     );
-  
     async function changeRoutine(
       id,
       name,
@@ -20,7 +19,7 @@ function EditRoutine() {
       isPublic
     ) {
       try {
-        const result = await editRoutine(
+        await editRoutine(
           id,
           name,
           goal,
