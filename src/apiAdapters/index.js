@@ -171,3 +171,23 @@ export const createNewActivity = async (name, description) => {
     console.log(error);
   }
 };
+
+export const attachActivityToRoutine = async (routineId, activityId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/routines/${routineId}/activities`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        routineId: routineId,
+        activityId: activityId,
+      }),
+    });
+    const result = await response.json();
+    console.log(response, "attachedActivity")
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

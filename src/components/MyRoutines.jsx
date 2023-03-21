@@ -62,32 +62,34 @@ const MyRoutines = () => {
                 <button>Submit</button>
             </form>
             <div>
-           {routines.map((routine, idx) => {
-            return (
-                <div key={'routine idx:' + idx}> 
-                    {isPublic ? <h1>isPublic:True</h1> : <h1>isPublic:False</h1>}
-                    <h1>Routine:{routine.name}</h1>
-                    <h2>Goal: {routine.goal}</h2>
-                
-                    {routine.activities.map((activity, idx) => {
-                        return (
-                            <div key={'activity idx' + idx}>
-                                <h2>Activity:{activity.name}</h2>
-                                <h3>Description: {activity.description} </h3>
-                                {activity.count && <h4>Count:{activity.count}</h4>}
-                                {activity.duration && <h4>Duration:{activity.duration}</h4>}
-                            </div>
-                        )
-                    })}
-                  {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
-                  <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete</button>
-                    <Link to={`edit-routine/${routine.id}`} state={routine}>
-                      <button>Edit</button>
-                    </Link>
-                </div>
-            )
-           })}
-        </div>
+                {routines.map((routine, idx) => {
+                    return (
+                        <div key={'routine idx:' + idx}> 
+                            <h1>Routine:{routine.name}</h1>
+                            <h2>Goal: {routine.goal}</h2>
+                        
+                            {routine.activities.map((activity, idx) => {
+                                return (
+                                    <div key={'activity idx' + idx}>
+                                        <h2>Activity:{activity.name}</h2>
+                                        <h3>Description: {activity.description} </h3>
+                                        {activity.count && <h4>Count:{activity.count}</h4>}
+                                        {activity.duration && <h4>Duration:{activity.duration}</h4>}
+                                    </div>
+                                )
+                            })}
+                            {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
+                            <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete</button>
+                            <Link to={`edit-routine/${routine.id}`} state={routine}>
+                                <button>Edit</button>
+                            </Link>
+                            <Link to={`attach-activity-to-routine/${routine.id}`}>
+                                <button>Add Activity</button>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
