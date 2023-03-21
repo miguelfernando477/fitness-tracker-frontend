@@ -25,18 +25,29 @@ const MyRoutines = () => {
             console.log(error)
         }
     }
+
+    async function createRoutine() {
+        try {
+            await createNewRoutine(routineName, routineGoal, isPublic);
+            getRoutines();
+            setRoutineName("");
+            setRoutineGoal("");
+            setIsPublic(false);
+            document.getElementById("isPublicCheckbox").checked = false;
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
     useEffect(() => {
         getRoutines();
     }, [])
 
-
-
     return (
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault();
-                createNewRoutine(routineName, routineGoal, isPublic);
+                createRoutine();
             }}>
                 <h3>New Routine:</h3>
                 <label className="formLabel">Name:<input type="text" value={routineName} name="routineName" onChange={(event)=>{
@@ -45,7 +56,7 @@ const MyRoutines = () => {
                 <label className="formLabel">Goal:<input type="text" value={routineGoal} name="routineGoal" onChange={(event)=>{
                     setRoutineGoal(event.target.value)
                 }}></input></label>
-                <label className="formLabel">Public:<input type="checkbox" value={isPublic} name="isPublic" onChange={(event)=>{
+                <label className="formLabel">Public:<input id="isPublicCheckbox" type="checkbox" value={isPublic} name="isPublic" onChange={(event)=>{
                     setIsPublic(!isPublic)
                 }}></input></label>
                 <button>Submit</button>
@@ -54,6 +65,7 @@ const MyRoutines = () => {
            {routines.map((routine, idx) => {
             return (
                 <div key={'routine idx:' + idx}> 
+                    {isPublic ? <h1>isPublic:True</h1> : <h1>isPublic:False</h1>}
                     <h1>Routine:{routine.name}</h1>
                     <h2>Goal: {routine.goal}</h2>
                 
