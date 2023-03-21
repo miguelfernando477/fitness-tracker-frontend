@@ -148,3 +148,26 @@ export const getAllActivities = async () => {
     console.log(error)
   }
 }
+
+export const createNewActivity = async (name, description) => {
+  const token = localStorage.getItem("token");
+
+  try {
+    const response = await fetch(`${BASE_URL}/activities`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+      }),
+    });
+    const result = await response.json();
+    console.log(response, "newActivity")
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

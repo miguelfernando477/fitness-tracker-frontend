@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from "react"
-import { getAllActivities } from "../apiAdapters";
+import { createNewActivity, getAllActivities } from "../apiAdapters";
 
 const Activities = () => {
     const [activities, setActivities] = useState([]);
+    const [activityName, setActivityName] = useState("");
+    const [activityDescription, setActivityDescription] = useState("");
     
     async function getActivities() {
         try {
             const result = await getAllActivities();
             setActivities(result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function createActivity() {
+        try {
+            const response = await createNewActivity(activityName, activityDescription);
+
+            if (response.name === "ActivityAlreadyExist") {
+                alert("Activity already exists");
+            }
+            else {
+                await getActivities();
+                setActivityName("");
+                setActivityDescription("");
+            }
         } catch (error) {
             console.log(error)
         }
@@ -19,6 +38,19 @@ const Activities = () => {
     
         return (
             <div>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    createActivity();
+                }}>
+                    <h3>New Activity:</h3>
+                    <label className="formLabel">Name:<input type="text" value={activityName} name="activityName" onChange={(event)=>{
+                        setActivityName(event.target.value)
+                    }}></input></label>
+                    <label className="formLabel">Description:<input type="text" value={activityDescription} name="activityDescription" onChange={(event)=>{
+                        setActivityDescription(event.target.value)
+                    }}></input></label>
+                    <button>Submit</button>
+                </form>
                {activities.map((activity, idx) => {
                 return (
                     <div key={'activity idx:' + idx}> 
