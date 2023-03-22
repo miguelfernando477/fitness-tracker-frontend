@@ -27,7 +27,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 1.75vh;
   padding: 10px;
 }
 
@@ -37,7 +37,7 @@ body {
 #logOutButton {
   text-transform: uppercase;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 1.75vh;
   background-color: transparent;
   color: white;
   border: none;
@@ -60,7 +60,7 @@ body {
 #Title {
   padding-left: 30px;
   font-family: "Kanit";
-  font-size: 50px;
+  font-size: 3.5vh;
   margin: 0px;
 }
 #home {
@@ -71,7 +71,7 @@ body {
   color: white;
 }
 #welcome{
-    font-size: 100px;
+    font-size: 7vh;
     margin-bottom: 0px;
 }
 #homeTitle{
@@ -79,7 +79,7 @@ body {
     color: red;
 }
 #User{
-    font-size: 75px;
+    font-size: 5.25vh;
     text-transform: uppercase;
     margin-top: 10px;
 }
@@ -92,7 +92,7 @@ body {
     border: 5px solid rgb(130, 2, 2);
     padding: 30px;
     margin: 30px;
-    font-size: 50px;
+    font-size: 3.5vh;
 }
 .homeLink:hover {
     box-shadow: 2px 2px 6px black;
