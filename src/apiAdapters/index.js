@@ -1,4 +1,5 @@
-let BASE_URL = "https://fitness-tracker-server-b2s9.onrender.com/api";
+// let BASE_URL = "https://fitness-tracker-server-b2s9.onrender.com/api";
+let BASE_URL = "http://localhost:3000/api"
 
 export const registerNewUser = async (username, password) => {
   try {
@@ -85,8 +86,16 @@ export const createNewRoutine = async (name, goal, isPublic) => {
         isPublic: isPublic,
       }),
     });
-    const result = await response.json();
-    console.log(response, "newRoutine");
+    console.log(response);
+    let result;
+    try {
+      result = await response.json();
+      console.log(response, "newRoutine");
+    } catch (error) {
+      console.log(error)
+      alert("Routine name already exists");
+    }
+    // const result = await response.json();
     return result;
   } catch (error) {
     console.log(error);
