@@ -28,8 +28,8 @@ function EditRoutineActivity() {
       }
     }
     return (
-      <div >
-        <h1 >Edit {location.state.name}</h1>
+      <div id="editRoutineActivity">
+        <h1 className="pageTitle">Edit {location.state.name}</h1>
         <form
           onSubmit={(event) => {
             event.preventDefault();

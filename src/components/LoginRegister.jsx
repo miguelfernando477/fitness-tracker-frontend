@@ -49,14 +49,16 @@ async function loginUser() {
 
 
     return (
-        <div>
+        <div className="pageContainer">
+            {displayLogin  
+            ? <h1 className="pageTitle">Log In</h1>
+            : <h1 className="pageTitle">Register</h1>}
             {displayLogin  
             ? <div>
-            <form id="loginForm" onSubmit={(e) => {
+            <form className="loginRegisterForm" id="loginForm" onSubmit={(e) => {
                 e.preventDefault();
                loginUser();
             }}> 
-                <h1>Log In</h1>
                 <label className="formLabel">
                     Username: 
                     <input type="text" value={username} name="username" onChange={(event)=>{
@@ -82,10 +84,10 @@ async function loginUser() {
             
             </div>
             : <div>
-            <form id="registerForm" onSubmit={(e) => {
+            <form className="loginRegisterForm" id="registerForm" onSubmit={(e) => {
                 e.preventDefault();
                registerUser();
-            }} > <h1>Register</h1>
+            }} > 
                 <label className="formLabel">
                     Username: 
                     <input type="text" value={username} name="username" onChange={(event)=>{

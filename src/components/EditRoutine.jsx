@@ -35,8 +35,8 @@ function EditRoutine() {
     }
   
     return (
-      <div >
-        <h1 >Edit Routine</h1>
+      <div id="editRoutine">
+        <h1 className="pageTitle">Edit Routine</h1>
         <form
           onSubmit={(event) => {
             event.preventDefault();

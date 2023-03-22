@@ -37,7 +37,8 @@ const Activities = () => {
     }, [])
     
         return (
-            <div>
+            <div id="activities">
+                <h1 className="pageTitle">Activities</h1>
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     createActivity();

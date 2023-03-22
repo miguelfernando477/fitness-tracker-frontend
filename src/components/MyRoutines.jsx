@@ -53,7 +53,8 @@ const MyRoutines = () => {
     }, [])
 
     return (
-        <div>
+        <div id="myRoutines">
+            <h1 className="pageTitle">My Routines</h1>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 createRoutine();
@@ -93,13 +94,13 @@ const MyRoutines = () => {
                                 )
                             })}
                             {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
-                            <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete Routine</button>
                             <Link to={`edit-routine/${routine.id}`} state={routine}>
                                 <button>Edit Routine</button>
                             </Link>
                             <Link to={`attach-activity-to-routine/${routine.id}`} state={routine}>
                                 <button>Add Activity</button>
                             </Link>
+                            <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete Routine</button>
                         </div>
                     )
                 })}
