@@ -1,5 +1,5 @@
-// let BASE_URL = "https://fitness-tracker-server-b2s9.onrender.com/api";
-let BASE_URL = "http://localhost:3000/api"
+let BASE_URL = "https://fitness-tracker-server-b2s9.onrender.com/api";
+// let BASE_URL = "http://localhost:3000/api"
 
 export const registerNewUser = async (username, password) => {
   try {

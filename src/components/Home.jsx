@@ -11,12 +11,13 @@ const Home = (props) => {
     }, [])
 
     return (
-        <div>
-            {username ? <h1>Welcome to Fitness Tracker, {username}</h1> : <h1>Welcome to Fitness Tracker</h1>}
-            <Link to="/routines" className="navLink">Routines</Link>
-            {loggedInUser && <Link to="/myroutines" className="navLink">My Routines</Link>}
-            <Link to="/activities" className="navLink">Activities</Link>
-            {!localStorage.getItem("username") && <Link to="/loginregister" className="navLink">Login/Register</Link> }
+        <div id="home">
+            <h1 id="welcome">Welcome to <span id="homeTitle" >Fitness Tracker</span></h1>
+            {username ? <h1 id="User">{username}</h1> : null}
+            {loggedInUser && <Link to="/myroutines" className="homeLink">My Routines</Link>}
+            <Link to="/routines" className="homeLink">Routines</Link>
+            <Link to="/activities" className="homeLink">Activities</Link>
+            {!localStorage.getItem("username") && <Link to="/loginregister" className="homeLink">Login/Register</Link> }
         </div>
     )
 }

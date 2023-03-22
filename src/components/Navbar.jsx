@@ -23,16 +23,17 @@ const Navbar = (props) => {
 
   return (
     <div id="navbar">
-      <h1>Fitness Tracker</h1>
-      <Link to="/" className="navLink">Home</Link>
-      <Link to="/routines" className="navLink">Routines</Link>
-      {loggedInUser && <Link to="/myroutines" className="navLink">My Routines</Link>}
-      <Link to="/activities" className="navLink">Activities</Link>
-      {localStorage.getItem("username") ? ( <button onClick={() => {
-        logOut();
-        navigate("/loginregister");
-      }}>Log Out</button> ) :  <Link to="/loginregister" className="navLink">Login/Register</Link> }
-      {loggedInUser && <h3><strong>User: </strong>{loggedInUser}</h3>}
+         <h1 id="Title">Fitness Tracker</h1>
+      <div id="navbarLinks">
+          <Link to="/" className="navLink">Home</Link>
+          <Link to="/routines" className="navLink">Routines</Link>
+          {loggedInUser && <Link to="/myroutines" className="navLink">My Routines</Link>}
+          <Link to="/activities" className="navLink">Activities</Link>
+          {localStorage.getItem("username") ? ( <button id="logOutButton" onClick={() => {
+            logOut();
+            navigate("/loginregister");
+          }}>Log Out</button> ) :  <Link to="/loginregister" className="navLink">Login/Register</Link> }
+      </div>
     </div>
   );
 };

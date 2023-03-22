@@ -12,7 +12,7 @@ const Main = () => {
     return(
         <div id="main">
             <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
-            <div>
+            <div id="page">
                 <Routes>
                     <Route exact path="/" element={<Home loggedInUser={loggedInUser}/>}/>
                     <Route path="/routines" element={<Routines/>}/>
