@@ -1,10 +1,47 @@
 import React, { useState } from "react"
 import { registerNewUser, logUserIn } from "../apiAdapters"
+import { useNavigate } from "react-router-dom";
+
 
 const LoginRegister = () => {
+    const navigate = useNavigate()
     const [displayLogin, setDisplayLogin] = useState(true);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+async function registerUser() {
+    try {
+        const response = await registerNewUser(username, password);
+        if (response.name === "UserAlreadyExist") {
+            alert("User already exist");
+        }
+        else {
+            localStorage.setItem("token", response.token);
+            localStorage.setItem("username", username);
+            navigate("/")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function loginUser() {
+    try {
+        const response = await logUserIn(username, password);
+        if (response.error) {
+            alert("Invalid Login Credentials");
+        }
+        else {
+            localStorage.setItem("token", response.token);
+            localStorage.setItem("username", username);
+            navigate("/")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 
     return (
         <div>
@@ -12,7 +49,7 @@ const LoginRegister = () => {
             ? <div>
             <form id="loginForm" onSubmit={(e) => {
                 e.preventDefault();
-                logUserIn(username, password);
+               loginUser();
             }}> 
                 <h1>Log In</h1>
                 <label className="formLabel">
@@ -42,7 +79,7 @@ const LoginRegister = () => {
             : <div>
             <form id="registerForm" onSubmit={(e) => {
                 e.preventDefault();
-                registerNewUser(username, password);
+               registerUser();
             }} > <h1>Register</h1>
                 <label className="formLabel">
                     Username: 

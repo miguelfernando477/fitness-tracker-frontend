@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { getMyRoutines, createNewRoutine, deleteRoutine } from "../apiAdapters";
+import { getMyRoutines, createNewRoutine, deleteRoutine, deleteRoutineActivity } from "../apiAdapters";
 import { Link } from "react-router-dom"
 
 const MyRoutines = () => {
@@ -20,6 +20,15 @@ const MyRoutines = () => {
     async function deleteRoutineFromMyRoutines(id) {
         try {
             await deleteRoutine(id);
+            getRoutines();
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function deleteActivityFromRoutine(id) {
+        try {
+            await deleteRoutineActivity(id);
             getRoutines();
         } catch (error) {
             console.log(error)
@@ -62,32 +71,39 @@ const MyRoutines = () => {
                 <button>Submit</button>
             </form>
             <div>
-           {routines.map((routine, idx) => {
-            return (
-                <div key={'routine idx:' + idx}> 
-                    {isPublic ? <h1>isPublic:True</h1> : <h1>isPublic:False</h1>}
-                    <h1>Routine:{routine.name}</h1>
-                    <h2>Goal: {routine.goal}</h2>
-                
-                    {routine.activities.map((activity, idx) => {
-                        return (
-                            <div key={'activity idx' + idx}>
-                                <h2>Activity:{activity.name}</h2>
-                                <h3>Description: {activity.description} </h3>
-                                {activity.count && <h4>Count:{activity.count}</h4>}
-                                {activity.duration && <h4>Duration:{activity.duration}</h4>}
-                            </div>
-                        )
-                    })}
-                  {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
-                  <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete</button>
-                    <Link to={`edit-routine/${routine.id}`} state={routine}>
-                      <button>Edit</button>
-                    </Link>
-                </div>
-            )
-           })}
-        </div>
+                {routines.map((routine, idx) => {
+                    return (
+                        <div key={'routine idx:' + idx}> 
+                            <h1>Routine:{routine.name}</h1>
+                            <h2>Goal: {routine.goal}</h2>
+                        
+                            {routine.activities.map((activity, idx) => {
+                                return (
+                                    <div key={'activity idx' + idx}>
+                                        <h2>Activity:{activity.name}</h2>
+                                        <h3>Description: {activity.description} </h3>
+                                        {activity.count && <h4>Count:{activity.count}</h4>}
+                                        {activity.duration && <h4>Duration:{activity.duration}</h4>}
+                                        <Link to={`edit-routine-activity/${activity.routineActivityId}`} state={activity}>
+                                            
+                                <button>Edit Count/Duration</button>
+                            </Link>
+                            <button onClick={() => deleteActivityFromRoutine(activity.routineActivityId) } >Delete Activity</button>
+                                    </div>
+                                )
+                            })}
+                            {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
+                            <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete Routine</button>
+                            <Link to={`edit-routine/${routine.id}`} state={routine}>
+                                <button>Edit Routine</button>
+                            </Link>
+                            <Link to={`attach-activity-to-routine/${routine.id}`} state={routine}>
+                                <button>Add Activity</button>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }

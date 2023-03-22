@@ -25,6 +25,7 @@ useEffect(() => {
                 <div key={'routine idx:' + idx}> 
                     <h1>Routine:{routine.name}</h1>
                     <h2>Goal: {routine.goal}</h2>
+                    <h2>{routine.creatorId}</h2>
                 
                     {routine.activities.map((activity, idx) => {
                         return (

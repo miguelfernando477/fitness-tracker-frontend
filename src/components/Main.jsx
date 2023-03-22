@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Navbar,Home, Routines, MyRoutines, Activities, LoginRegister, EditRoutine } from "./";
+import { Navbar,Home, Routines, MyRoutines, Activities, LoginRegister, EditRoutine, AttachRoutineForm, EditRoutineActivity } from "./";
 
 
 const Main = () => {
@@ -22,6 +22,8 @@ const Main = () => {
                     <Route path="/activities" element={<Activities/>}/>
                     <Route path="/loginregister" element={<LoginRegister/>}/>
                     <Route path="/myroutines/edit-routine/:id" element={< EditRoutine/>}/>
+                    <Route path="/myroutines/attach-activity-to-routine/:id" element={< AttachRoutineForm/>}/>
+                    <Route path="/myroutines/edit-routine-activity/:id" element={< EditRoutineActivity/>}/>
                 </Routes>
             </div>
         </div>
