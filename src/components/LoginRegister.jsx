@@ -3,11 +3,14 @@ import { registerNewUser, logUserIn } from "../apiAdapters"
 import { useNavigate } from "react-router-dom";
 
 
-const LoginRegister = () => {
+const LoginRegister = (props) => {
     const navigate = useNavigate()
+
     const [displayLogin, setDisplayLogin] = useState(true);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const setLoggedInUser = props.setLoggedInUser;
 
 async function registerUser() {
     try {
@@ -18,6 +21,7 @@ async function registerUser() {
         else {
             localStorage.setItem("token", response.token);
             localStorage.setItem("username", username);
+            setLoggedInUser(username);
             navigate("/")
         }
     } catch (error) {
@@ -34,6 +38,7 @@ async function loginUser() {
         else {
             localStorage.setItem("token", response.token);
             localStorage.setItem("username", username);
+            setLoggedInUser(username);
             navigate("/")
         }
     } catch (error) {
