@@ -49,13 +49,13 @@ async function loginUser() {
 
 
     return (
-        <div id="loginContainer">
+        <div className="formContainer">
             {displayLogin  
             ? <h1 className="pageTitle">Log In</h1>
             : <h1 className="pageTitle">Register</h1>}
             {displayLogin  
             ? <div>
-            <form className="loginRegisterForm" id="loginForm" onSubmit={(e) => {
+            <form className="defaultForm" onSubmit={(e) => {
                 e.preventDefault();
                loginUser();
             }}> 
@@ -84,7 +84,7 @@ async function loginUser() {
             
             </div>
             : <div>
-            <form className="loginRegisterForm" id="registerForm" onSubmit={(e) => {
+            <form className="defaultForm" onSubmit={(e) => {
                 e.preventDefault();
                registerUser();
             }} > 

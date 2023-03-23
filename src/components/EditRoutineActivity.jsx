@@ -28,9 +28,9 @@ function EditRoutineActivity() {
       }
     }
     return (
-      <div id="editRoutineActivity">
+      <div className="formContainer">
         <h1 className="pageTitle">Edit {location.state.name}</h1>
-        <form
+        <form className="defaultForm" 
           onSubmit={(event) => {
             event.preventDefault();
             changeRoutineActivity(
@@ -40,8 +40,10 @@ function EditRoutineActivity() {
             );
           }}
         >
-          <h1>Count</h1>
+           <label className="formLabel">
+                    Count: 
           <input
+            className="inputtext"
             name="count"
             type="text"
             required
@@ -50,8 +52,12 @@ function EditRoutineActivity() {
               setNewCount(event.target.value);
             }}
           />
-          <h1>Duration</h1>
+           </label>
+
+          <label className="formLabel">
+                    Duration: 
           <input
+            className="inputtext"
             name="duration"
             type="text"
             required
@@ -60,8 +66,8 @@ function EditRoutineActivity() {
               setNewDuration(event.target.value);
             }}
           />
-  
-          <button type="submit">
+           </label>
+          <button className="redButton" type="submit">
             Submit
           </button>
         </form>

@@ -35,9 +35,9 @@ function EditRoutine() {
     }
   
     return (
-      <div id="editRoutine">
-        <h1 className="pageTitle">Edit Routine</h1>
-        <form
+      <div className="formContainer">
+        <h1 className="pageTitle">Edit {location.state.name}</h1>
+        <form className="defaultForm"
           onSubmit={(event) => {
             event.preventDefault();
             changeRoutine(
@@ -48,8 +48,9 @@ function EditRoutine() {
             );
           }}
         >
-          <h1>Name</h1>
+          <label className="formLabel">Name:
           <input
+            className="inputtext"
             name="name"
             type="text"
             required
@@ -58,8 +59,10 @@ function EditRoutine() {
               setNewName(event.target.value);
             }}
           />
-          <h1>Goal</h1>
+          </label>
+          <label className="formLabel">Goal:
           <input
+            className="inputtext"
             name="goal"
             type="text"
             required
@@ -68,9 +71,11 @@ function EditRoutine() {
               setNewGoal(event.target.value);
             }}
           />
-          <h1>
-           Public
+          </label>
+          <label id="checkboxLabel">
+           Public:
             <input
+              className="inputtext"
               name="isPublic"
               type="checkbox"
               value={newIsPublic}
@@ -79,9 +84,9 @@ function EditRoutine() {
                 setNewIsPublic(!newIsPublic);
               }}
             />
-          </h1>
+          </label>
   
-          <button type="submit">
+          <button className="redButton" type="submit">
             Submit
           </button>
         </form>
