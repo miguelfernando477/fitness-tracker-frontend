@@ -165,7 +165,7 @@ body {
   color: red;
 }
 
-#newActivityForm {
+.newItemForm {
   background-color: rgb(26, 26, 26);
   color: white;
   padding: 10px;
@@ -177,14 +177,15 @@ body {
   width: fit-content;
 }
 
-#newActivityForm * {
+.newItemForm * {
   margin: 3px;
 }
 
-#newActivityForm label {
+.newItemForm label {
   display: flex;
   justify-content: space-between;
 }
+
 #checkboxLabel {
   color: white;
   font-size: 2vh;
@@ -201,7 +202,12 @@ body {
   margin: 81px 0px 0px;
   padding: 0px 0px 0px;
 }
+
 #addActivityTitle2 {
   margin: 0px 0px 0px;
   padding: 0px 0px 81px;
+}
+
+#isPublicCheckbox {
+  margin-left: 15px;
 }

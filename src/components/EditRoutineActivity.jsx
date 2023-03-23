@@ -45,7 +45,7 @@ function EditRoutineActivity() {
           <input
             className="inputtext"
             name="count"
-            type="text"
+            type="number"
             required
             value={newCount}
             onChange={(event) => {
@@ -59,7 +59,7 @@ function EditRoutineActivity() {
           <input
             className="inputtext"
             name="duration"
-            type="text"
+            type="number"
             required
             value={newDuration}
             onChange={(event) => {

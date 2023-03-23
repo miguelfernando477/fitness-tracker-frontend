@@ -39,7 +39,7 @@ const Activities = () => {
         return (
             <div id="activities">
                 <h1 className="pageTitle">Activities</h1>
-                <form id="newActivityForm" onSubmit={(e) => {
+                {localStorage.getItem("username") && <form className="newItemForm" onSubmit={(e) => {
                     e.preventDefault();
                     createActivity();
                 }}>
@@ -51,7 +51,7 @@ const Activities = () => {
                         setActivityDescription(event.target.value)
                     }}></input></label>
                     <button className="redButton">Submit</button>
-                </form>
+                </form>}
                {activities.map((activity, idx) => {
                 return (
                     <div key={'activity idx:' + idx} id="card"> 

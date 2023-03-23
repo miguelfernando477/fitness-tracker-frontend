@@ -21,7 +21,7 @@ useEffect(() => {
     return (
         <div id="routines" className="pageContainer">
             <h1 className="pageTitle">Routines</h1>
-            <div id="routineList">
+            <div>
                 {routines.map((routine, idx) => {
                 return (
                     <div key={'routine idx:' + idx} id="card"> 
