@@ -104,29 +104,19 @@ body {
 }
 
 .pageTitle {
-    justify-self: center;
-    font-size: 8vh;
-    color: white;
-    font-family: "Kanit";
-    text-shadow: 2px 2px 6px red;
-
-
+  display: flex;
+  justify-content: center;
+  font-size: 8vh;
+  color: white;
+  font-family: "Kanit";
+  text-shadow: 2px 2px 6px red;
 }
 
-.pageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-/* #routineList {
-    width:100vh;
-} */
-
-/* #routineCard {
-    width:100vh;
-} */
 
 .loginRegisterForm {
     display: flex;
@@ -147,10 +137,48 @@ body {
   margin-left: 15px;
   padding: 0px 15px 0px;
 }
-.loginRegisterButton{
+.redButton{
   color:white;
   background-color: red;
   font-size: 2vh;
   padding: 5px 15px 5px;
   margin: 10px 0px 10px;
+}
+
+#card {
+  background-color: rgb(44, 44, 44);
+  color: white;
+  padding: 10px;
+  margin:10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px black;
+}
+
+#card * {
+  margin: 0px;
+}
+
+#cardLabel {
+  color: red;
+}
+
+#newActivityForm {
+  background-color: rgb(26, 26, 26);
+  color: white;
+  padding: 10px;
+  margin:10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px black;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#newActivityForm * {
+  margin: 3px;
+}
+
+#newActivityForm label {
+  display: flex;
+  justify-content: space-between;
 }

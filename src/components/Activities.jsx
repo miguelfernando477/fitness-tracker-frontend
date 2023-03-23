@@ -39,26 +39,24 @@ const Activities = () => {
         return (
             <div id="activities">
                 <h1 className="pageTitle">Activities</h1>
-                <form onSubmit={(e) => {
+                <form id="newActivityForm" onSubmit={(e) => {
                     e.preventDefault();
                     createActivity();
                 }}>
-                    <h3>New Activity:</h3>
-                    <label className="formLabel">Name:<input type="text" value={activityName} name="activityName" onChange={(event)=>{
+                    <h3 id="cardLabel">New Activity:</h3>
+                    <label className="formLabel">Name: <input type="text" value={activityName} name="activityName" onChange={(event)=>{
                         setActivityName(event.target.value)
                     }}></input></label>
-                    <label className="formLabel">Description:<input type="text" value={activityDescription} name="activityDescription" onChange={(event)=>{
+                    <label className="formLabel">Description: <input type="text" value={activityDescription} name="activityDescription" onChange={(event)=>{
                         setActivityDescription(event.target.value)
                     }}></input></label>
-                    <button>Submit</button>
+                    <button className="redButton">Submit</button>
                 </form>
                {activities.map((activity, idx) => {
                 return (
-                    <div key={'activity idx:' + idx}> 
-                        <h1>Name:{activity.name}</h1>
-                        <h2>Description: {activity.description}</h2>
-                        <h2>ID: {activity.id}</h2>
-
+                    <div key={'activity idx:' + idx} id="card"> 
+                        <h1><span id="cardLabel">Activity: </span>{activity.name}</h1>
+                        <h2><span id="cardLabel">Description: </span>{activity.description}</h2>
                     </div>
                 )
                })}

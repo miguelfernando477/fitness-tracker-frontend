@@ -49,7 +49,7 @@ async function loginUser() {
 
 
     return (
-        <div className="pageContainer">
+        <div id="loginContainer">
             {displayLogin  
             ? <h1 className="pageTitle">Log In</h1>
             : <h1 className="pageTitle">Register</h1>}
@@ -75,9 +75,9 @@ async function loginUser() {
 
                     }}></input>
                 </label>
-                <button type="submit" className="loginRegisterButton">Log In</button>
+                <button type="submit" className="redButton">Log In</button>
             </form> 
-                <button type="button" className="loginRegisterButton" onClick={() => { 
+                <button type="button" className="redButton" onClick={() => { 
                     setDisplayLogin(false);
                 }}
                 >Don't have an account? Sign up here</button>
@@ -104,9 +104,9 @@ async function loginUser() {
 
                     }}></input>
                 </label>
-                <button type="submit" className="loginRegisterButton" >Register</button>
+                <button type="submit" className="redButton" >Register</button>
             </form>
-                <button type="button" className="loginRegisterButton" onClick={() => {
+                <button type="button" className="redButton" onClick={() => {
                     setDisplayLogin(true);
                 }}
                 >Already have an account? Log in here</button>
