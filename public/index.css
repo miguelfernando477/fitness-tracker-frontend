@@ -196,3 +196,12 @@ body {
   width: 2vh;
   height: 2vh;
 }
+
+#addActivityTitle {
+  margin: 81px 0px 0px;
+  padding: 0px 0px 0px;
+}
+#addActivityTitle2 {
+  margin: 0px 0px 0px;
+  padding: 0px 0px 81px;
+}
