@@ -61,7 +61,7 @@ async function loginUser() {
             }}> 
                 <label className="formLabel">
                     Username: 
-                    <input type="text" value={username} name="username" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={username} name="username" onChange={(event)=>{
 
                         setUsername(event.target.value)
 
@@ -69,13 +69,13 @@ async function loginUser() {
                 </label>
                 <label className="formLabel">
                     Password:  
-                    <input type="text" value={password} name="password" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={password} name="password" onChange={(event)=>{
 
                         setPassword(event.target.value)
 
                     }}></input>
                 </label>
-                <button type="submit">Log In</button>
+                <button type="submit" className="loginRegisterButton">Log In</button>
             </form> 
                 <button type="button" className="loginRegisterButton" onClick={() => { 
                     setDisplayLogin(false);
@@ -90,7 +90,7 @@ async function loginUser() {
             }} > 
                 <label className="formLabel">
                     Username: 
-                    <input type="text" value={username} name="username" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={username} name="username" onChange={(event)=>{
 
                         setUsername(event.target.value)
 
@@ -98,13 +98,13 @@ async function loginUser() {
                 </label>
                 <label className="formLabel">
                     Password:  
-                    <input type="text" value={password} name="password" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={password} name="password" onChange={(event)=>{
 
                         setPassword(event.target.value)
 
                     }}></input>
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit" className="loginRegisterButton" >Register</button>
             </form>
                 <button type="button" className="loginRegisterButton" onClick={() => {
                     setDisplayLogin(true);

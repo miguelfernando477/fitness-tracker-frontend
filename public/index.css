@@ -74,15 +74,18 @@ body {
 #welcome{
     font-size: 7vh;
     margin-bottom: 0px;
+    text-shadow: 2px 2px 6px red;
 }
 #homeTitle{
     font-family: "Kanit";
     color: red;
+    text-shadow: 2px 2px 6px black;
 }
 #User{
     font-size: 5.25vh;
     text-transform: uppercase;
     margin-top: 10px;
+    text-shadow: 2px 2px 6px red;
 }
 .homeLink {
     text-decoration: none;
@@ -102,13 +105,19 @@ body {
 
 .pageTitle {
     justify-self: center;
+    font-size: 8vh;
+    color: white;
+    font-family: "Kanit";
+    text-shadow: 2px 2px 6px red;
+
+
 }
 
 .pageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vh;
+    width: 100vw;
 }
 
 /* #routineList {
@@ -125,5 +134,23 @@ body {
 }
 
 .loginRegisterForm * {
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+}
+
+.formLabel {
+  color: white;
+  font-size: 2vh;
+}
+
+.inputtext{
+  font-size: 2vh;
+  margin-left: 15px;
+  padding: 0px 15px 0px;
+}
+.loginRegisterButton{
+  color:white;
+  background-color: red;
+  font-size: 2vh;
+  padding: 5px 15px 5px;
+  margin: 10px 0px 10px;
 }
