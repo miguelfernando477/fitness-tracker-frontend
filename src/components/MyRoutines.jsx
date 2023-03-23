@@ -55,52 +55,52 @@ const MyRoutines = () => {
     return (
         <div id="myRoutines">
             <h1 className="pageTitle">My Routines</h1>
-            <form onSubmit={(e) => {
+            <form className="newItemForm" onSubmit={(e) => {
                 e.preventDefault();
                 createRoutine();
             }}>
-                <h3>New Routine:</h3>
-                <label className="formLabel">Name:<input type="text" value={routineName} name="routineName" onChange={(event)=>{
+                <h3 id="cardLabel">New Routine:</h3>
+                <label className="formLabel">Name: <input type="text" value={routineName} name="routineName" onChange={(event)=>{
                     setRoutineName(event.target.value)
                 }}></input></label>
-                <label className="formLabel">Goal:<input type="text" value={routineGoal} name="routineGoal" onChange={(event)=>{
+                <label className="formLabel">Goal: <input type="text" value={routineGoal} name="routineGoal" onChange={(event)=>{
                     setRoutineGoal(event.target.value)
                 }}></input></label>
-                <label className="formLabel">Public:<input id="isPublicCheckbox" type="checkbox" value={isPublic} name="isPublic" onChange={(event)=>{
+                <label className="formLabel" id="checkboxLabel">Public: <input className="inputtext" id="isPublicCheckbox" type="checkbox" value={isPublic} name="isPublic" onChange={(event)=>{
                     setIsPublic(!isPublic)
                 }}></input></label>
-                <button>Submit</button>
+                <button className="redButton">Submit</button>
             </form>
             <div>
                 {routines.map((routine, idx) => {
                     return (
-                        <div key={'routine idx:' + idx}> 
-                            <h1>Routine:{routine.name}</h1>
-                            <h2>Goal: {routine.goal}</h2>
+                        <div key={'routine idx:' + idx} id="card"> 
+                            <h1><span id="cardLabel">Routine: </span>{routine.name}</h1>
+                            <h2><span id="cardLabel">Goal: </span>{routine.goal}</h2>
                         
                             {routine.activities.map((activity, idx) => {
                                 return (
                                     <div key={'activity idx' + idx}>
-                                        <h2>Activity:{activity.name}</h2>
+                                        <h2><span id="cardLabel">Activity: </span>{activity.name}</h2>
                                         <h3>Description: {activity.description} </h3>
-                                        {activity.count && <h4>Count:{activity.count}</h4>}
-                                        {activity.duration && <h4>Duration:{activity.duration}</h4>}
+                                        {activity.count && <h4>Count: {activity.count}</h4>}
+                                        {activity.duration && <h4>Duration: {activity.duration}</h4>}
                                         <Link to={`edit-routine-activity/${activity.routineActivityId}`} state={activity}>
                                             
-                                <button>Edit Count/Duration</button>
+                                <button className="redButton">Edit Count/Duration</button>
                             </Link>
-                            <button onClick={() => deleteActivityFromRoutine(activity.routineActivityId) } >Delete Activity</button>
+                            <button className="redButton" onClick={() => deleteActivityFromRoutine(activity.routineActivityId) } >Delete Activity</button>
                                     </div>
                                 )
                             })}
-                            {routine.isPublic ? <h2>Public</h2>: <h2>Private</h2>}
+                            {routine.isPublic ? <h2 id="cardLabel">Public</h2> : <h2 id="cardLabel">Private</h2>}
                             <Link to={`edit-routine/${routine.id}`} state={routine}>
-                                <button>Edit Routine</button>
+                                <button className="redButton">Edit Routine</button>
                             </Link>
                             <Link to={`attach-activity-to-routine/${routine.id}`} state={routine}>
-                                <button>Add Activity</button>
+                                <button className="redButton">Add Activity</button>
                             </Link>
-                            <button onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete Routine</button>
+                            <button className="redButton" onClick={() => deleteRoutineFromMyRoutines(routine.id) } >Delete Routine</button>
                         </div>
                     )
                 })}

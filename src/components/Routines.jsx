@@ -21,26 +21,25 @@ useEffect(() => {
     return (
         <div id="routines" className="pageContainer">
             <h1 className="pageTitle">Routines</h1>
-            <div id="routineList">
+            <div>
                 {routines.map((routine, idx) => {
                 return (
-                    <div key={'routine idx:' + idx} id="routineCard"> 
-                        <h1>Routine:{routine.name}</h1>
-                        <h2>Goal: {routine.goal}</h2>
-                        <h2>{routine.creatorId}</h2>
+                    <div key={'routine idx:' + idx} id="card"> 
+                        <h1><span id="cardLabel">Routine: </span>{routine.name}</h1>
+                        <h2><span id="cardLabel">Goal: </span>{routine.goal}</h2>
                     
                         {routine.activities.map((activity, idx) => {
                             return (
                                 <div key={'activity idx' + idx}>
-                                    <h2>Activity:{activity.name}</h2>
+                                    <h2><span id="cardLabel">Activity: </span>{activity.name}</h2>
                                     <h3>Description: {activity.description} </h3>
-                                    {activity.count && <h4>Count:{activity.count}</h4>}
-                                    {activity.duration && <h4>Duration:{activity.duration}</h4>}
+                                    {activity.count && <h4>Count: {activity.count}</h4>}
+                                    {activity.duration && <h4>Duration: {activity.duration}</h4>}
                                 </div>
                             )
                         })}
 
-                        <h2>Creator: {routine.creatorName}</h2>
+                        <h2><span id="cardLabel">Creator: </span>{routine.creatorName}</h2>
                     </div>
                     )
                 })}

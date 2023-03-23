@@ -49,19 +49,19 @@ async function loginUser() {
 
 
     return (
-        <div className="pageContainer">
+        <div className="formContainer">
             {displayLogin  
             ? <h1 className="pageTitle">Log In</h1>
             : <h1 className="pageTitle">Register</h1>}
             {displayLogin  
             ? <div>
-            <form className="loginRegisterForm" id="loginForm" onSubmit={(e) => {
+            <form className="defaultForm" onSubmit={(e) => {
                 e.preventDefault();
                loginUser();
             }}> 
                 <label className="formLabel">
                     Username: 
-                    <input type="text" value={username} name="username" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={username} name="username" onChange={(event)=>{
 
                         setUsername(event.target.value)
 
@@ -69,28 +69,28 @@ async function loginUser() {
                 </label>
                 <label className="formLabel">
                     Password:  
-                    <input type="text" value={password} name="password" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={password} name="password" onChange={(event)=>{
 
                         setPassword(event.target.value)
 
                     }}></input>
                 </label>
-                <button type="submit">Log In</button>
+                <button type="submit" className="redButton">Log In</button>
             </form> 
-                <button type="button" className="loginRegisterButton" onClick={() => { 
+                <button type="button" className="redButton" onClick={() => { 
                     setDisplayLogin(false);
                 }}
                 >Don't have an account? Sign up here</button>
             
             </div>
             : <div>
-            <form className="loginRegisterForm" id="registerForm" onSubmit={(e) => {
+            <form className="defaultForm" onSubmit={(e) => {
                 e.preventDefault();
                registerUser();
             }} > 
                 <label className="formLabel">
                     Username: 
-                    <input type="text" value={username} name="username" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={username} name="username" onChange={(event)=>{
 
                         setUsername(event.target.value)
 
@@ -98,15 +98,15 @@ async function loginUser() {
                 </label>
                 <label className="formLabel">
                     Password:  
-                    <input type="text" value={password} name="password" onChange={(event)=>{
+                    <input type="text" className="inputtext" value={password} name="password" onChange={(event)=>{
 
                         setPassword(event.target.value)
 
                     }}></input>
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit" className="redButton" >Register</button>
             </form>
-                <button type="button" className="loginRegisterButton" onClick={() => {
+                <button type="button" className="redButton" onClick={() => {
                     setDisplayLogin(true);
                 }}
                 >Already have an account? Log in here</button>

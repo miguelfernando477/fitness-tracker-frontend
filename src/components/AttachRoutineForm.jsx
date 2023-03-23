@@ -37,14 +37,15 @@ const AttachRoutineForm = () => {
     }, [])
 
     return (
-        <div>
-            <form onSubmit={(e) => {
+        <div className="formContainer">
+            <form className="defaultForm" onSubmit={(e) => {
                 e.preventDefault();
                 attachActivity();
             }}>
-                <h3>Add Activity to {location.state.name}:</h3>
+                <h1 className="pageTitle" id="addActivityTitle">Add Activity to</h1>
+                <h1 className="pageTitle" id="addActivityTitle2">{location.state.name}:</h1>
                 <label className="formLabel">Activities
-                <select name="Activities" id="activities" defaultValue="selectactivity" onChange={(event) => {
+                <select className="inputtext" name="Activities" id="activities" defaultValue="selectactivity" onChange={(event) => {
                     setActivityId(event.target.value)
                 }}>
                     <option value="selectactivity" hidden disabled>Select Activity</option>
@@ -57,13 +58,13 @@ const AttachRoutineForm = () => {
                })}
                 </select>
                 </label>
-                <label className="formLabel">Count:<input type="number"  value={count} name="routineName" onChange={(event)=>{
+                <label className="formLabel">Count:<input className="inputtext" type="number"  value={count} name="routineName" onChange={(event)=>{
                     setCount(event.target.value)
                 }}></input></label>
-                <label className="formLabel">Duration:<input type="number" value={duration} name="routineGoal" onChange={(event)=>{
+                <label className="formLabel">Duration:<input className="inputtext" type="number" value={duration} name="routineGoal" onChange={(event)=>{
                     setDuration(event.target.value)
                 }}></input></label>
-                <button>Submit</button>
+                <button className="redButton">Submit</button>
             </form>
         </div>
     )
