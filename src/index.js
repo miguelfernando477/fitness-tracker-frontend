@@ -7,7 +7,7 @@ const container = document.getElementById("app");
 const root = ReactDOM.createRoot(container);
 
 root.render(
- <Router>
+  <Router>
     <Main />
- </Router>
+  </Router>
 );

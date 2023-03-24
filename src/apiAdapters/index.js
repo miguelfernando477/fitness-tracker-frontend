@@ -1,5 +1,4 @@
 let BASE_URL = "https://fitness-tracker-server-b2s9.onrender.com/api";
-// let BASE_URL = "http://localhost:3000/api"
 
 export const registerNewUser = async (username, password) => {
   try {
@@ -13,7 +12,6 @@ export const registerNewUser = async (username, password) => {
     });
 
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -31,7 +29,6 @@ export const logUserIn = async (username, password) => {
       }),
     });
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -86,22 +83,19 @@ export const createNewRoutine = async (name, goal, isPublic) => {
         isPublic: isPublic,
       }),
     });
-    console.log(response);
+
     let result;
     try {
       result = await response.json();
-      console.log(response, "newRoutine");
     } catch (error) {
-      console.log(error)
+      console.log(error);
       alert("Routine name already exists");
     }
-    // const result = await response.json();
     return result;
   } catch (error) {
     console.log(error);
   }
 };
-//Duplicate Name Issue
 
 export const editRoutine = async (id, name, goal, isPublic) => {
   const token = localStorage.getItem("token");
@@ -169,7 +163,6 @@ export const createNewActivity = async (name, description) => {
       }),
     });
     const result = await response.json();
-    console.log(response, "newActivity");
     return result;
   } catch (error) {
     console.log(error);
@@ -198,7 +191,6 @@ export const attachActivityToRoutine = async (
       }
     );
     const result = await response.json();
-    console.log(response, "attachedActivity");
     return result;
   } catch (error) {
     console.log(error);
@@ -207,7 +199,6 @@ export const attachActivityToRoutine = async (
 
 export const editRoutineActivity = async (id, count, duration) => {
   const token = localStorage.getItem("token");
-  console.log("editRoutineActivity");
   try {
     const response = await fetch(`${BASE_URL}/routine_activities/${id}`, {
       method: "PATCH",
@@ -221,7 +212,6 @@ export const editRoutineActivity = async (id, count, duration) => {
       }),
     });
     const result = await response.json();
-    console.log(response, "routineActivity");
     return result;
   } catch (error) {
     console.log(error);

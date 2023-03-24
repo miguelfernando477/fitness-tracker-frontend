@@ -1,8 +1,8 @@
 * {
   font-family: "Poppins";
 }
-html{
-    background-color: gray;
+html {
+  background-color: gray;
 }
 body {
   margin: 0;
@@ -71,36 +71,36 @@ body {
   align-items: center;
   color: white;
 }
-#welcome{
-    font-size: 7vh;
-    margin-bottom: 0px;
-    text-shadow: 2px 2px 6px red;
+#welcome {
+  font-size: 7vh;
+  margin-bottom: 0px;
+  text-shadow: 2px 2px 6px red;
 }
-#homeTitle{
-    font-family: "Kanit";
-    color: red;
-    text-shadow: 2px 2px 6px black;
+#homeTitle {
+  font-family: "Kanit";
+  color: red;
+  text-shadow: 2px 2px 6px black;
 }
-#User{
-    font-size: 5.25vh;
-    text-transform: uppercase;
-    margin-top: 10px;
-    text-shadow: 2px 2px 6px red;
+#User {
+  font-size: 5.25vh;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-shadow: 2px 2px 6px red;
 }
 .homeLink {
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    background-color: red;
-    border-radius: 10px;
-    border: 5px solid rgb(130, 2, 2);
-    padding: 30px;
-    margin: 30px;
-    font-size: 3.5vh;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: red;
+  border-radius: 10px;
+  border: 5px solid rgb(130, 2, 2);
+  padding: 30px;
+  margin: 30px;
+  font-size: 3.5vh;
 }
 .homeLink:hover {
-    box-shadow: 2px 2px 6px black;
-    background-color: rgb(152, 0, 0);
+  box-shadow: 2px 2px 6px black;
+  background-color: rgb(152, 0, 0);
 }
 
 .pageTitle {
@@ -119,13 +119,13 @@ body {
 }
 
 .defaultForm {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
 .defaultForm * {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .formLabel {
@@ -135,13 +135,13 @@ body {
   justify-content: space-between;
 }
 
-.inputtext{
+.inputtext {
   font-size: 2vh;
   margin-left: 15px;
   padding: 0px 15px 0px;
 }
-.redButton{
-  color:white;
+.redButton {
+  color: white;
   background-color: red;
   font-size: 2vh;
   padding: 5px 15px 5px;
@@ -152,7 +152,7 @@ body {
   background-color: rgb(44, 44, 44);
   color: white;
   padding: 10px;
-  margin:10px;
+  margin: 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 6px black;
 }
@@ -169,7 +169,7 @@ body {
   background-color: rgb(26, 26, 26);
   color: white;
   padding: 10px;
-  margin:10px;
+  margin: 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 6px black;
   display: flex;
@@ -190,7 +190,7 @@ body {
   color: white;
   font-size: 2vh;
   display: flex;
- justify-content: center;
+  justify-content: center;
 }
 
 #checkboxLabel input {
